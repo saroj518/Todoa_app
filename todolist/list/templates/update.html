@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <style>
+            body{
+            background:pink;
+            }
+        </style>
+        <h2>update "{{task.title}}"</h2>
+           <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+           <button type="submit">update</button>
+           </form>
+    </body>
+</html>

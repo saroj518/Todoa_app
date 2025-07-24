@@ -1,0 +1,56 @@
+<html>
+<head>
+   <title>TODO LIST</title>
+   <style>
+     button{
+      color:fuchsia;
+     }
+
+     fieldset{
+      background-color:pink
+     }
+
+     body{
+      background-color:purple
+     }
+   </style>
+
+  
+</head>
+<body>
+<center>
+    <h1>Task List</h1>
+    <a href="{% url 'todo_create'  %}"><button type="submit">Add List</button></a><br><br>
+         <fieldset style="width:300px";>
+        {% for task in task %}
+        <li>
+          
+          
+          {{ task.title}}
+         
+          <a href="{% url 'todo_delete' task.id %}"><button type="submit">delete</button></a>
+          <a href="{% url 'todo_update' task.id %}"><button type="submit">update</button></a>
+          {% if task.is_done %}
+             
+          {% else %}
+             
+          {% endif %} 
+       <form method="post" action="{% url 'todo_done' task.id %}">
+          {% csrf_token %}
+          <button type="submit">
+            {% if task.is_done %}
+              Task Done
+            {% else %}
+              Task Not Done
+            {%  endif %}    
+          </button></form>
+        </li>
+      
+        {% empty %}
+          <li>No Task Available.</li>
+        
+        {% endfor %}
+        </fieldset>
+</center>
+</body>
+</html>

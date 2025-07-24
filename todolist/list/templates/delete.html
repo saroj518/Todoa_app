@@ -1,0 +1,14 @@
+<html>
+<body>
+        <style>
+            body{
+            background:pink;
+            }
+        </style>
+    <h2>delete "{{ task.title}}"</h2>
+    <form method="post">
+        {%csrf_token%}
+        <button type="submit">delete</button>
+    </form>
+</body>
+</html>
