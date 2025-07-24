@@ -13,6 +13,8 @@
      body{
       background-color:purple
      }
+
+     
    </style>
 
   
@@ -22,6 +24,7 @@
     <h1>Task List</h1>
     <a href="{% url 'todo_create'  %}"><button type="submit">Add List</button></a><br><br>
          <fieldset style="width:300px";>
+          <figure>
         {% for task in task %}
         <li>
           
@@ -50,6 +53,7 @@
           <li>No Task Available.</li>
         
         {% endfor %}
+         </figure>
         </fieldset>
 </center>
 </body>
